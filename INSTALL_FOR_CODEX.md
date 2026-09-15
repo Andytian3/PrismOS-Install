@@ -1,13 +1,13 @@
 # 棱镜OS给 Codex 的安装说明
 
-优先读取当前 Workspace 内的本说明。安装分为“离线准备”和“联网完成”，离线准备不要求先成功访问服务器。
+默认体验是用户复制一次指令到 Codex，Codex 自动检查、下载、校验、解压并继续安装；不要求用户预先下载或选择本地/在线模式。已有本地说明和资料包可以直接复用。离线资料包仅是在线访问受阻时的备用方案。用户仍需填写业务信息、确认提交，并处理宿主实际要求的授权。
 
 ## 0. 本地检测与离线准备
 
 先检查当前 Workspace 的 .lengjing/workspace-token.txt、.lengjing/bootstrap-input.json、.lengjing/install-state.json 和 PrismOS-install-kit 目录，不读取其他 Workspace。
 - 已安装且用户请求升级：走已有 Runner 的升级流程，保留用户配置，不执行首次初始化。
 - 有本地资料包：先运行 `python3 PrismOS-install-kit/bootstrap.py --project-dir .`，不联网、不安装系统依赖。包在根目录时相应调整路径。
-- 没有资料包：可向 https://prismaigent.com/system/install-for-codex 发起一次有界读取，连接超时10秒、总时长30秒；不要把读取与执行合并成 curl | bash。
+- 没有资料包但已读到本说明：不要再次获取说明，不要让用户先手动下载，直接进入第1节自动下载安装资料包。获取说明时采用有界读取，连接超时10秒、总时长30秒；不要把读取与执行合并成 curl | bash。
 - 只有网络已获允许而官网发生DNS/连接失败时，才尝试一次公开备用说明：https://raw.githubusercontent.com/Andytian3/PrismOS-Install/main/INSTALL_FOR_CODEX.md 。
 - 权限审核待定、超时或拒绝时，不要反复申请或切换工具/域名绕过；展示“正在等待联网授权，可以先下载本地资料包完成填写”。提供官网资料包 https://prismaigent.com/system/install-kit 和备用 https://github.com/Andytian3/PrismOS-Install/releases/latest ，由用户自行下载，不自动打开浏览器。
 - 网站与镜像不匹配时停止混用，优先同一资料包中的manifest版本和文件哈希。哈希用于完整性校验，不代替对下载来源的信任。
