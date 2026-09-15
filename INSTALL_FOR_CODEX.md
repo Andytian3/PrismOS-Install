@@ -14,6 +14,10 @@
 
 ## 1. 先填写初始化信息
 
+如果已通过在线入口读到本说明，但当前 Workspace 没有资料包：在联网已获允许时，先从 https://prismaigent.com/system/install-kit 下载 ZIP（连接超时10秒、总时长120秒、不要无限重试），保存到当前 Workspace 的 .lengjing/downloads/。仅网络连接失败且没有权限拒绝时，可尝试一次公开 ZIP 镜像 https://github.com/Andytian3/PrismOS-Install/releases/latest/download/PrismOS-install-kit.zip 。先检查ZIP条目没有绝对路径、..或符号链接，且解压不覆盖已有文件，再解压到当前 Workspace 的 PrismOS-install-kit/；读取包内版本与说明并运行离线检查。不能在 bootstrap.py 尚不存在时直接执行它。
+
+工具拒绝、授权待定或超时：停止自动联网，直接给用户 ZIP 下载链接（不是首页），说明“尚未取得安装资料，请下载并解压后继续”，不要误报为安装程序失败。不要要求已选择本地安装的用户再走在线说明读取。
+
 有本地包时，让用户打开包内 init-form.html；无本地包但网页可用时使用 https://prismaigent.com/system/init-form 。
 一张HTML包含所有初始化内容，无需安装Runner即可填写。不要让用户在终端填写，也不要索取服务器FMP Key。
 用户点击“检查并复制 JSON”后粘贴到当前Codex。按下面第3节原样保存、简要确认；已经保存的不重复填写。
